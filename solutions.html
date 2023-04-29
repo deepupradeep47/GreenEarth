@@ -1,0 +1,82 @@
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
+   <!-- custom css file link  -->
+   <link rel="stylesheet" href="css/style.css">
+<h1 class="heading">
+      <img src="https://png.pngtree.com/png-clipart/20220620/original/pngtree-yoga-tree-logo-with-circular-shaped-png-image_8129259.png" class="logo">
+      Green Earth
+      <img src="https://png.pngtree.com/png-clipart/20220620/original/pngtree-yoga-tree-logo-with-circular-shaped-png-image_8129259.png" class="logo">
+    </h1>
+   <header>
+  <nav>
+    <ul>
+      <li><a href="1index.html">Admin View</a></li>
+      <li><a href="index.html">User View</a></li>
+      <li><a href="#">Map View</a></li>
+      <li><a href="calculator.html">Calculator</a></li>
+      <li><a href="">Solutions</a></li>
+    </ul>
+  </nav>
+</header>
+
+
+</head>
+<body>
+   <h1 style="color: white;">Solutions to improve the green area</h1>
+<div class="container">
+   <div class="image-container">
+      <div class="image" data-title="sai-homes">
+         <a href="https://www.appropedia.org/Vertical_gardens" target="_blank">
+         <img src="verical-tree.jpg" alt=""></a>
+         <h3>vertical-garden<br>(A vertical garden is an indoor/outdoor modular planter with multiple levels of vertically spaced pots or planters)</h3>
+      </div>
+
+      <div class="image" data-title="lakadi ka pull">
+         <a href="https://www.theoxygenproject.com/post/moss-lawns-saving-the-planet-one-yard-at-a-time/#:~:text=Moss%20lawns%20are%20nature's%20velvet,Produce%20a%20ton%20of%20oxygen." target="_blank">
+            <img src="mossplantwallart.JPG" alt=""></a>
+         <h3>Moss-walls<br>(Moss walls are nature's velvet carpets, and they're very beneficial to the surrounding ecosystem. A small moss wall can absorb more carbon than 275 mature trees . They also Produce a ton of oxygen.)</h3>
+      </div>
+
+      <div class="image" data-title="kphp">
+         <a href="https://greenroofs.org/about-green-roofs" target="_blank">
+         <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/20080708_Chicago_City_Hall_Green_Roof.JPG/1280px-20080708_Chicago_City_Hall_Green_Roof.JPG" alt=""></a>
+         <h3>Green-roof<br>(A green or living roof is a flat or low pitched roof with a layer of planting over the waterproofing)</h3>
+      </div>
+      <div class="image" data-title="kphp">
+         <a href="https://sankalptaru.org/" target="_blank">
+         <img src="leadingPlantationNGO.jpg" alt=""></a>
+         <h3>leading-Plantation-NGO<br>(NGO that works for plant growth and environment)</h3>
+      </div>
+
+   </div>
+
+</div>
+
+<script>
+
+let searchBox = document.querySelector('#search-box');
+let images = document.querySelectorAll('.container .image-container .image');
+
+searchBox.oninput = () =>{
+   images.forEach(hide => hide.style.display = 'none');
+   let value = searchBox.value.toLowerCase(); // Convert search term to lowercase for case-insensitive search
+   images.forEach(filter =>{
+      let title = filter.getAttribute('data-title').toLowerCase(); // Convert image title to lowercase for case-insensitive search
+      if(title.includes(value)){
+         filter.style.display = 'block';
+      }
+      if(searchBox.value == ''){
+         filter.style.display = 'block';
+      }
+   });
+};
+
+
+</script>
+
+</body>
+</html>

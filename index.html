@@ -1,0 +1,117 @@
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
+   <!-- custom css file link  -->
+   <link rel="stylesheet" href="css/style.css">
+<h1 class="heading">
+      <img src="https://png.pngtree.com/png-clipart/20220620/original/pngtree-yoga-tree-logo-with-circular-shaped-png-image_8129259.png" class="logo">
+      Green Earth
+      <img src="https://png.pngtree.com/png-clipart/20220620/original/pngtree-yoga-tree-logo-with-circular-shaped-png-image_8129259.png" class="logo">
+    </h1>
+   <header>
+  <nav>
+    <ul>
+      <li><a href="1index.html">Admin View</a></li>
+      <li><a href="#">User View</a></li>
+      <li><a href="#">Map View</a></li>
+      <li><a href="calculator.html">Calculator</a></li>
+      <li><a href="solutions.html">Solutions</a></li>
+    </ul>
+  </nav>
+</header>
+</head>
+<body>
+   
+<div class="container">
+
+  <!-- <h1 class="heading">type to search images</h1>-->
+
+   <input type="text" placeholder="Enter location name or pin code to search" id="search-box">
+
+   <div class="image-container">
+      <div class="image" data-title="500050(zone-1)">
+         <a href="50050-1.jpg" type="_blank">
+         <img src="500050-1.jpg" alt=""></a>
+         <h3>500050(zone-1)</h3>
+      </div>
+      <div class="image" data-title="500050(zone-2)">
+         <a href="50050-2.jpg">
+            <img src="500050-2 .JPG" alt=""></a>
+         <h3>500050(zone-2)</h3>
+      </div>
+
+      <div class="image" data-title="500050(zone-3)">
+         <a href="50050-3.jpg">
+         <img src="500050-3.jpg" alt=""></a>
+         <h3>500050(zone-3)</h3>
+      </div>
+      <div class="image" data-title="500050(zone-3)">
+         <a href="Capture5.jpg">
+         <img src="500050-4 (1).jpg" alt=""></a>
+         <h3>500050(zone-3)</h3>
+      </div>
+   </div>
+
+</div>
+
+<script>
+
+let searchBox = document.querySelector('#search-box');
+let images = document.querySelectorAll('.container .image-container .image');
+
+searchBox.oninput = () =>{
+   images.forEach(hide => hide.style.display = 'none');
+   let value = searchBox.value.toLowerCase(); // Convert search term to lowercase for case-insensitive search
+   images.forEach(filter =>{
+      let title = filter.getAttribute('data-title').toLowerCase(); // Convert image title to lowercase for case-insensitive search
+      if(title.includes(value)){
+         filter.style.display = 'block';
+      }
+      if(searchBox.value == ''){
+         filter.style.display = 'block';
+      }
+   });
+};
+</script>
+<style>
+      .gallery {
+         display: flex;
+         flex-wrap: wrap;
+         margin: 20px 0;
+
+      }
+      .gallery img {
+         width: 200px;
+         height: 200px;
+         object-fit: cover;
+         margin: 10px;
+         border: 2px solid #ccc;
+         border-radius: 5px;
+      }
+   </style>
+</head>
+<body>
+   <h1></h1>
+   <div class="gallery"></div>
+   <script>
+      function uploadImage() {
+         const input = document.getElementById('upload');
+         if (input.files && input.files[0]) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+               const img = document.createElement('img');
+               img.src = e.target.result;
+               document.querySelector('.gallery').appendChild(img);
+            }
+            reader.readAsDataURL(input.files[0]);
+         }
+      }
+   </script>
+        <form>
+      <input type="file" id="upload">
+      <button type="button" onclick="uploadImage()">Upload</button></form>
+</body>
+</html>

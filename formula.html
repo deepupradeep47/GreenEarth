@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My Green Earth Website</title>
+    <style>
+      body {
+        background-image: url("https://t4.ftcdn.net/jpg/04/73/00/53/360_F_473005385_7mAw89HSEvDsLMIbm3v5k0MN2G0wDVMu.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+      h1 {
+        text-align: center;
+        color: black;
+        text-shadow: 2px 2px 4px #000000;
+        font-size: 4em;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .logo {
+        height: 1em;
+        margin-right: 0.5em;
+        margin-left: 0.5em;
+      }
+      .center {
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>
+      <img src="https://png.pngtree.com/png-clipart/20220620/original/pngtree-yoga-tree-logo-with-circular-shaped-png-image_8129259.png" alt="Tree logo" class="logo">
+      Green Earth
+      <img src="https://png.pngtree.com/png-clipart/20220620/original/pngtree-yoga-tree-logo-with-circular-shaped-png-image_8129259.png" alt="Tree logo" class="logo">
+    </h1>
+    <div class="center">
+      <form>
+        <label for="tree_count">Number of Trees:</label>
+        <input type="number" id="tree_count" name="tree_count" min="0">
+        <br><br>
+        <label for="population">Number of Population:</label>
+        <input type="number" id="population" name="population" min="0">
+        <br><br>
+        <label for="area">Area (in sq. feet):</label>
+        <input type="number" id="area" name="area" min="0">
+        <br><br>
+        <input type="button" value="Calculate" onclick="calculatePercentage()">
+      </form>
+      <br><br>
+      <h2>Percentage of Trees in the Area:</h2>
+      <p id="result"></p>
+    </div>
+    <script type="text/javascript">
+      function calculatePercentage() {
+        let treeCount = parseInt(document.getElementById("tree_count").value);
+        let population = parseInt(document.getElementById("population").value);
+        let area = parseInt(document.getElementById("area").value);
+        let treePercentage = (treeCount / (population * area)) * 100;
+        document.getElementById("result").innerText = treePercentage.toFixed(2) + "%";
+      }
+    </script>
+  </body>
+</html>
